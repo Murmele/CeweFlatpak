@@ -1,0 +1,32 @@
+app-id: com.cewe.DM_DE
+runtime: org.freedesktop.Platform
+runtime-version: "1.6"
+sdk: org.freedesktop.Sdk
+command: cewefotobuch_de_DE_1230
+desktop-file-name-suffix: "" # used to create development version
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --share=network
+  - --share=ipc
+  - --filesystem=home
+
+#rename-icon: gittyup # Image will renamed to match the app-id konvention
+#rename-desktop-file: gittyup.desktop
+#rename-appdata-file: gittyup.appdata.xml
+
+
+modules:
+  - name: CeweFotobuch
+    buildsystem: simple
+    build-commands:
+      - ls
+      - ./install.pl
+      
+    sources:
+      - type: archive
+        archive-type: tar-gzip
+        strip-components: 0
+        url: https://dls.photoprintit.com/api/getClient/1320-de_DE/hps/x_x_x_x_1320_x_01320-1D8yb69q7Wl6o/linux
+        sha256: 15c5b036c05c123727b4358b5eb557c5439b841843cf0c09ca24a2f0814f2338
